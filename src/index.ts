@@ -6,10 +6,12 @@ cron.schedule(`*/1 * * * *`, async () => {
    .then(res => res.json())
    .then(data => console.log(data))
    .catch(err=> console.log(err));
-
-  fetch(process.env.CUSTOM_URL_2 || "")
+ if(process.env.CUSTOM_URL_2){
+   fetch(process.env.CUSTOM_URL_2 || "")
    .then(res => res.json())
    .then(data => console.log(data))
    .catch(err=> console.log(err))
+ }
+ 
 
 });
